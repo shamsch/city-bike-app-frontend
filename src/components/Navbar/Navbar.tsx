@@ -17,7 +17,7 @@ export default Navbar
 
 const linkStyles = {
     textDecoration: 'none',
-    color: colors.secondary,
+    color: colors.white,
     padding: '10px',
     margin: '10px',
     border: '1px solid black',

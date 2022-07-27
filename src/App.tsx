@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import { Home } from "./pages/Home";
 import { Journeys } from "./pages/Journeys";
-import { Station } from "./pages/Station";
 import { Stations } from "./pages/Stations";
+import { Station } from "./pages/Station";
 
 function App() {
   return (

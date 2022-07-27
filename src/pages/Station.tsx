@@ -2,6 +2,6 @@
 
 export const Station = () => {
   return (
-    <div>Station</div>
+    <div>Stations</div>
   )
 }

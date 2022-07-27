@@ -2,25 +2,18 @@ import styled from "styled-components";
 import { colors } from "../../utils/color";
 
 export const StyledNavBar = styled.nav`
+    background-color: ${colors.primary};
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 20px;
-    background-color: ${colors.primary};
-    color: ${colors.tertiary};
-    height: 60px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    padding: 0.5rem 1rem;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    height: 3rem;
+    position: sticky;
     @media (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        padding: 0;
+        height: 4rem;
     }
 `;
 
