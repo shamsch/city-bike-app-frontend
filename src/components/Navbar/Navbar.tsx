@@ -21,5 +21,7 @@ const linkStyles = {
     padding: '10px',
     margin: '10px',
     border: '1px solid black',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    fontSize: '20px',
+    fontWeight: 'bold',
 }

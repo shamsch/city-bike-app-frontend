@@ -16,6 +16,10 @@ export const StyledStationCard = styled.div`
     &:hover {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
         background-color: ${colors.secondaryLight};
+        cursor: pointer;
+        h6{
+            color: ${colors.blackDark};
+        }
     }
     // heading of the card
     h3 {
