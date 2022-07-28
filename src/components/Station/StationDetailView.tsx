@@ -1,5 +1,4 @@
 import { IResponseStation } from "../../types"
-import { StyledStationCard } from "./StationCard.styled"
 import { StyledStationDetail } from "./StationDetailView.styled"
 
 interface StationDetailViewProps {
@@ -7,7 +6,6 @@ interface StationDetailViewProps {
 }
 
 const StationDetailView = ({ station }: StationDetailViewProps) => {
-
   return (
     <>
       <StyledStationDetail>
@@ -23,6 +21,7 @@ const StationDetailView = ({ station }: StationDetailViewProps) => {
           <img
             src={station.static_map_url}
             alt={station.name}
+            onClick={() => window.location.href = `https://yandex.ru/maps/?ll=${station.lon},${station.lat}&z=19`}
             className="static-map"
           ></img>
         </div>

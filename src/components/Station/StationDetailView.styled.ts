@@ -29,6 +29,12 @@ export const StyledStationDetail = styled.div`
         width: 50%;
         height: 50%;
         margin: 0 auto;
+        // on hover 
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0 10px ${colors.black};
+            animation: 0.5s ease-in-out 0s 1 fadeIn;
+        }
     }
     .station-content {
         margin-right: 10px;
