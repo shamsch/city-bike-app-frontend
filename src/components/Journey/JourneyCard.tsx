@@ -13,7 +13,7 @@ function JourneyCard({ journey }: JourneyCardProps) {
                 <div className="journey">
                     <div className="left-journey">
                         <h3>{journey.departure_station}</h3>
-                        <h6> - {format(new Date(journey.departure_time), "dd.MM.yyyy HH:mm")}</h6>
+                        <h6> - {format(new Date(journey.departure_time), "dd LLL yyyy HH:mm")}</h6>
 
                     </div>
 
@@ -22,10 +22,10 @@ function JourneyCard({ journey }: JourneyCardProps) {
                         <p>Duration <b>{journey.duration.toFixed(2)}</b> min</p>
                         <p>Month <b>{journey.month}</b></p>
                     </div>
-                    
+
                     <div className="right-journey">
                         <h3>{journey.return_station}</h3>
-                        <h6> - {format(new Date(journey.return_time), "dd.MM.yyyy HH:mm")}</h6>
+                        <h6> - {format(new Date(journey.return_time), "dd LLL yyyy HH:mm")}</h6>
                     </div>
                 </div>
 
