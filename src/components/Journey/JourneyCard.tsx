@@ -28,10 +28,7 @@ function JourneyCard({ journey }: JourneyCardProps) {
                         <h6> - {format(new Date(journey.return_time), "dd LLL yyyy HH:mm")}</h6>
                     </div>
                 </div>
-
-
-
-
+                
             </StyledJourneyCard>
         </>
     )
