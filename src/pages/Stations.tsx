@@ -1,20 +1,26 @@
+import { useEffect, useState } from "react"
 import StationCard from "../components/Station/StationCard"
 import { IStation } from "../types"
 
 
 export const Stations = () => {
+  const [stations, setStations] = useState<IStation[]>([])
+
+  useEffect(() => {
+    fetch("https://bike-app-rest-api.herokuapp.com/api/station")
+      .then(response => response.json())
+      .then(data => {
+        setStations(data)
+      })
+  }, [])
+
   return (
     <>
-        <StationCard station={dummyStation}/>
+      {stations.map(station => (
+        <StationCard key={station.id} station={station} />
+      ))}
     </>
   )
 }
 
-const dummyStation: IStation = {
-    id: 1,
-    name: "Station 1",
-    address: "Address 1",
-    capacity: 1,
-    lat: 1,
-    lon: 1,
-}
+
