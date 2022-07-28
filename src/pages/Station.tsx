@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Loading } from "../components/Loading/Loading";
 import StationDetailView from "../components/Station/StationDetailView";
 import { IResponseStation } from "../types";
 
@@ -20,7 +21,7 @@ export const Station = () => {
 
   return (
     <>
-    {!station && <div>Loading...</div>}
+    {!station && <Loading/>}
     {station && <StationDetailView station={station} />}
     </>
   )

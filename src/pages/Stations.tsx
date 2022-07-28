@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Loading } from "../components/Loading/Loading"
 import StationCard from "../components/Station/StationCard"
 import { IStation } from "../types"
 
@@ -16,6 +17,7 @@ export const Stations = () => {
 
   return (
     <>
+      {!stations.length && <Loading />}
       {stations.map(station => (
         <StationCard key={station.id} station={station} />
       ))}
