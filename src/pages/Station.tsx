@@ -12,12 +12,8 @@ export const Station = () => {
   const [station, setStation] = useState<IResponseStation | null>(null);
 
   useEffect(() => {
-    axios.get("https://bike-app-rest-api.herokuapp.com/api/station/", {
-      params: {
-        id: stationId
-      }
-    }).then(response => {
-      setStation(response.data.station);
+    axios.get(`https://bike-app-rest-api.herokuapp.com/api/station/${stationId}`).then(response => {
+      setStation(response.data);
     }
     )
   }, [stationId])
