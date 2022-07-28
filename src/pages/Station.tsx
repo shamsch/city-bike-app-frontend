@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../components/Loading/Loading";
@@ -11,12 +12,14 @@ export const Station = () => {
   const [station, setStation] = useState<IResponseStation | null>(null);
 
   useEffect(() => {
-    fetch("https://bike-app-rest-api.herokuapp.com/api/station/" + stationId)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setStation(data);
-      })
+    axios.get("https://bike-app-rest-api.herokuapp.com/api/station/", {
+      params: {
+        id: stationId
+      }
+    }).then(response => {
+      setStation(response.data.station);
+    }
+    )
   }, [stationId])
 
   return (
