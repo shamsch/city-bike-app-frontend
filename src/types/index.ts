@@ -7,6 +7,21 @@ export interface IStation{
     lon: number,
 }
 
+export interface IResponseStation{
+    id: number,
+    name: string,
+    address: string,
+    average_departure_distance: number,
+    average_return_distance: number,
+    departure_journey: number,
+    return_journey: number,
+    lat: number,
+    lon: number,
+    static_map_url: string,
+    top_departure_station: string[],
+    top_return_station: string[],
+}
+
 export interface IJourney{
     id: number,
     departure: Date, 
