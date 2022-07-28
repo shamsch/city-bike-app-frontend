@@ -26,23 +26,23 @@ const StationDetailView = ({ station }: StationDetailViewProps) => {
           ></img>
         </div>
 
-
-        <div className="top-station-list">
-          <p>Top five departure station from {station.name}</p>
-          <ul>
-            {station.top_departure_station.map((station: any, index: any) => (
-              <li key={index}>{station}</li>
-            ))}
-          </ul>
+        <div className="top-stations">
+          <div className="top-station-list">
+            <p>Top five departure station from {station.name}</p>
+            <ul>
+              {station.top_departure_station.map((station: any, index: any) => (
+                <li key={index}>{station}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="top-station-list"><p>Top five return station from {station.name}</p>
+            <ul>
+              {station.top_return_station.map((station: any, index: any) => (
+                <li key={index}>{station}</li>
+              ))}
+            </ul></div>
         </div>
-        <div className="top-station-list"><p>Top five return station from {station.name}</p>
-          <ul>
-            {station.top_return_station.map((station: any, index: any) => (
-              <li key={index}>{station}</li>
-            ))}
-          </ul></div>
-
-
+        
       </StyledStationDetail>
     </>
   )

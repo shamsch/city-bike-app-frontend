@@ -50,7 +50,17 @@ export const StyledStationDetail = styled.div`
         align-items: center;
     }
 
+    .top-stations {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px 0;  
+    }
+
     .top-station-list{
+        margin-right: 40px;
+
         p {
             font-size: 1.5rem;
             text-decoration: underline;
