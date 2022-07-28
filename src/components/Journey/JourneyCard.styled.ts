@@ -22,6 +22,7 @@ export const StyledJourneyCard = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 33.33%;
     }
     .info {
         display: flex;

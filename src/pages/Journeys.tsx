@@ -31,7 +31,6 @@ export const Journeys = () => {
       {!loading && journeys.map(journey => (
         <JourneyCard key={journey.id} journey={journey} />
       ))}
-      {!loading && <p>page {page}</p> }
       {!loading &&
         <Paginate
           onPageChange={(page) => setPage(page)}
