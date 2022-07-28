@@ -22,6 +22,20 @@ export interface IResponseStation{
     top_return_station: string[],
 }
 
+export interface IResponseJourney{
+    id: number,
+    departure_station: string,
+    return_station: string,
+    departure_time: string,
+    return_time: string,
+    departure_station_id: number,
+    return_station_id: number,
+    covered_distance: number,
+    duration: number,
+    month: string,
+}
+
+
 export interface IJourney{
     id: number,
     departure: Date, 
