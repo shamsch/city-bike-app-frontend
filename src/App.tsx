@@ -4,10 +4,12 @@ import { Home } from "./pages/Home";
 import { Journeys } from "./pages/Journeys";
 import { Stations } from "./pages/Stations";
 import { Station } from "./pages/Station";
+import { GlobalStyles } from "./globalStyles";
 
 function App() {
   return (
     <>
+      <GlobalStyles />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,6 +18,7 @@ function App() {
         <Route path="/journey" element={<Journeys />} />
       </Routes>
     </>
+
   );
 }
 
