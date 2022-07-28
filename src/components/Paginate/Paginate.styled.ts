@@ -7,8 +7,8 @@ export const StyledPagination = styled.div`
         justify-content: center;
         align-items: center;
     }
-    .pagination{
-        li{
+    .pagination {
+        li {
             list-style: none;
         }
     }

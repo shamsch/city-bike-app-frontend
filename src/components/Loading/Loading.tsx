@@ -5,7 +5,7 @@ import { StyledLoading } from "./Loading.styled";
 export const Loading = () => {
     return (
         <StyledLoading>
-            <PacmanLoader color={colors.primary} loading={true}/>
+            <PacmanLoader color={colors.primary} loading={true} />
         </StyledLoading>
     );
 }

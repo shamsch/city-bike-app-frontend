@@ -10,7 +10,7 @@ export const Journeys = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  
+
   useEffect(() => {
     setLoading(true);
     axios.get("https://bike-app-rest-api.herokuapp.com/api/journey", {
@@ -26,7 +26,7 @@ export const Journeys = () => {
 
   return (
     <>
-      
+
       {loading && <Loading />}
       {!loading && journeys.map(journey => (
         <JourneyCard key={journey.id} journey={journey} />
@@ -35,7 +35,7 @@ export const Journeys = () => {
         <Paginate
           onPageChange={(page) => setPage(page)}
           totalPage={totalPage}
-          initialPage={page-1}
+          initialPage={page - 1}
         />
       }
     </>

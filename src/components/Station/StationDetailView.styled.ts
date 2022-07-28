@@ -13,14 +13,14 @@ export const StyledStationDetail = styled.div`
     margin: 0 auto;
     margin-top: 10px;
 
-    .station-name{
+    .station-name {
         font-size: 2rem;
         font-weight: bold;
         color: ${colors.black};
         margin-bottom: 10px;
     }
 
-    .address{
+    .address {
         font-size: 1.2rem;
         font-weight: bold;
         color: ${colors.blackLight};
@@ -29,7 +29,7 @@ export const StyledStationDetail = styled.div`
         width: 50%;
         height: 50%;
         margin: 0 auto;
-        // on hover 
+        // on hover
         &:hover {
             cursor: pointer;
             box-shadow: 0 0 10px ${colors.black};
@@ -55,10 +55,10 @@ export const StyledStationDetail = styled.div`
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        margin: 10px 0;  
+        margin: 10px 0;
     }
 
-    .top-station-list{
+    .top-station-list {
         margin-right: 40px;
 
         p {
@@ -66,11 +66,11 @@ export const StyledStationDetail = styled.div`
             text-decoration: underline;
             color: ${colors.primary};
         }
-        ul{
+        ul {
             list-style: none;
             padding: 1px 10px;
             margin: 0;
-            li{
+            li {
                 font-size: 1.2rem;
                 color: ${colors.blackDark};
                 margin: 0;
@@ -78,5 +78,4 @@ export const StyledStationDetail = styled.div`
             }
         }
     }
-
-`
+`;

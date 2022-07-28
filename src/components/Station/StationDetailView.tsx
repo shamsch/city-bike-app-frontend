@@ -42,7 +42,7 @@ const StationDetailView = ({ station }: StationDetailViewProps) => {
               ))}
             </ul></div>
         </div>
-        
+
       </StyledStationDetail>
     </>
   )

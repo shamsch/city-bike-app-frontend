@@ -20,8 +20,8 @@ export const Station = () => {
 
   return (
     <>
-    {!station && <Loading/>}
-    {station && <StationDetailView station={station} />}
+      {!station && <Loading />}
+      {station && <StationDetailView station={station} />}
     </>
   )
 }

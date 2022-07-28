@@ -17,7 +17,7 @@ export const StyledStationCard = styled.div`
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
         background-color: ${colors.secondaryLight};
         cursor: pointer;
-        h6{
+        h6 {
             color: ${colors.blackDark};
         }
     }
@@ -32,7 +32,7 @@ export const StyledStationCard = styled.div`
     // subtitle of the card
     h6 {
         font-size: 1.25rem;
-        font-decoration: italic; 
+        font-decoration: italic;
         color: ${colors.grayDark};
         margin: 0;
         padding: 0;
@@ -43,6 +43,5 @@ export const StyledStationCard = styled.div`
         color: ${colors.white};
         margin: 0;
         padding: 0;
-
     }
 `;
