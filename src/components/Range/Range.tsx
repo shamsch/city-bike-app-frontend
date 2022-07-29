@@ -6,10 +6,11 @@ interface RangeProps {
     min: number;
     max: number;
     step: number;
+    unit?: string;
     onSubmit: (value: number[]) => void;
 }
 
-export const Range = ({ min, max, step, title, onSubmit }: RangeProps) => {
+export const Range = ({ min, max, step, title, unit, onSubmit }: RangeProps) => {
     const [rangeValue, setRangeValue] = useState([min, max]);
 
     return (
@@ -48,8 +49,8 @@ export const Range = ({ min, max, step, title, onSubmit }: RangeProps) => {
                     )}
                 />
             </div>
-            <p>{rangeValue[0]}-{rangeValue[1]}</p>
-            <button onClick={() => onSubmit(rangeValue)}>Apply filter</button>
+            <p>{rangeValue[0]}-{rangeValue[1]} {unit?unit:"unit"}</p>
+            <button onClick={() => onSubmit(rangeValue)}>Apply</button>
         </StyledRange>
     )
 }
