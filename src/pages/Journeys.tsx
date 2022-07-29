@@ -21,7 +21,7 @@ export const Journeys = () => {
     setLoading(true);
     axios.get("https://bike-app-rest-api.herokuapp.com/api/journey", {
       params: {
-        page: page, 
+        page: page,
         search: searchValue,
         distanceMin: distanceRange[0],
         distanceMax: distanceRange[1],
@@ -39,9 +39,9 @@ export const Journeys = () => {
     <>
 
       {loading && <Loading />}
-      {!loading && <Searchbar placeholder="Search by station i.e Lastenlehto, or month i.e May" onChange={(val)=> setSearchValue(val)}/>}
-      {!loading && <Range title="Distance" unit="km" max={distanceRange[1]} min={distanceRange[0]} step={0.1} onSubmit={(val)=>setDistanceRange(val)}/>}
-      {!loading && <Range title="Duration" unit="min" max={durationRange[1]} min={durationRange[0]} step={1} onSubmit={(val)=>setDurationRange(val)}/>}
+      {!loading && <Searchbar initialValue={searchValue} placeholder="Search by station i.e Lastenlehto, or month i.e May" onChange={(val) => setSearchValue(val)} />}
+      {!loading && <Range title="Distance" unit="km" max={distanceRange[1]} min={distanceRange[0]} step={0.1} onSubmit={(val) => setDistanceRange(val)} />}
+      {!loading && <Range title="Duration" unit="min" max={durationRange[1]} min={durationRange[0]} step={1} onSubmit={(val) => setDurationRange(val)} />}
       {!loading && journeys.map(journey => (
         <JourneyCard key={journey.id} journey={journey} />
       ))}

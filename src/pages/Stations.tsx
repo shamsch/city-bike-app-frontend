@@ -35,6 +35,7 @@ export const Stations = () => {
       {loading && <Loading />}
       {!loading &&
       <Searchbar
+        initialValue={searchValue}
         placeholder="Search by station name i.e Kaivopustio"
         onChange={(val) => setSearchValue(val)}
       /> 

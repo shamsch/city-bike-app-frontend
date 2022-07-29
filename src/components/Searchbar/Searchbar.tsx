@@ -4,11 +4,12 @@ import { StyledSearchbar } from "./Searchbar.styled";
 interface SearchbarProps {
     onChange: (value: string) => void;
     placeholder?: string;
+    initialValue: string;
 }
 
 
-export const Searchbar = ({ onChange, placeholder }: SearchbarProps) => {
-    const [searchValue, setSearchValue] = useState("");
+export const Searchbar = ({ onChange, placeholder, initialValue }: SearchbarProps) => {
+    const [searchValue, setSearchValue] = useState(initialValue);
     return (
         <>
             <StyledSearchbar>
