@@ -10,7 +10,7 @@ export const Stations = () => {
   const [stations, setStations] = useState<IStation[]>([])
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
-  const [totalPage, setTotalPage] = useState(0)
+  const [totalPage, setTotalPage] = useState(1)
 
   useEffect(() => {
     setLoading(true)
