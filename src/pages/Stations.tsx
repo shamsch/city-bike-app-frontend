@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Loading } from "../components/Loading/Loading"
 import { Paginate } from "../components/Paginate/Paginate"
+import { Searchbar } from "../components/Searchbar/Searchbar"
 import StationCard from "../components/Station/StationCard"
 import { IStation } from "../types"
 
@@ -11,12 +12,14 @@ export const Stations = () => {
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
   const [totalPage, setTotalPage] = useState(1)
+  const [searchValue, setSearchValue] = useState("")
 
   useEffect(() => {
     setLoading(true)
     axios.get("https://bike-app-rest-api.herokuapp.com/api/station", {
       params: {
-        page: page
+        page: page,
+        search: searchValue
       }
     })
       .then(response => {
@@ -25,11 +28,17 @@ export const Stations = () => {
         setLoading(false)
       }
       )
-  }, [page])
+  }, [page, searchValue])
 
   return (
     <>
       {loading && <Loading />}
+      {!loading &&
+      <Searchbar
+        placeholder="Search by station name i.e Kaivopustio"
+        onChange={(val) => setSearchValue(val)}
+      /> 
+      }
       {!loading && stations.map(station => (
         <StationCard key={station.id} station={station} />
       ))}
