@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import JourneyCard from "../components/Journey/JourneyCard";
 import { Loading } from "../components/Loading/Loading";
+import { OrderSelect } from "../components/OrderOption/OrderSelect";
 import { Paginate } from "../components/Paginate/Paginate";
 import { Range } from "../components/Range/Range";
 import { Searchbar } from "../components/Searchbar/Searchbar";
 import { IResponseJourney } from "../types";
+import { journeyColumns, order } from "../utils/optionsForSelect";
 
 export const Journeys = () => {
   const [journeys, setJourneys] = useState<IResponseJourney[]>([]);
@@ -15,7 +17,8 @@ export const Journeys = () => {
   const [searchValue, setSearchValue] = useState("");
   const [distanceRange, setDistanceRange] = useState([0, 5000]); // because I know the max is 4.8k km by SQL query
   const [durationRange, setDurationRange] = useState([0, 3000]); // because I know the max is 2.7k min by SQL query, however not optimal, i think a backend endpoint for getting the max is needed for more sophisticated approach
-
+  const [orderBy, setOrderBy] = useState(journeyColumns[0]);
+  const [orderDirection, setOrderDirection] = useState(order[0]);
 
   useEffect(() => {
     setLoading(true);
@@ -26,14 +29,16 @@ export const Journeys = () => {
         distanceMin: distanceRange[0],
         distanceMax: distanceRange[1],
         durationMin: durationRange[0],
-        durationMax: durationRange[1]
-      }
+        durationMax: durationRange[1], 
+        orderBy: orderBy.value,
+        orderDir: orderDirection.value
+      },
     }).then(response => {
       setJourneys(response.data.journeys);
       setTotalPage(response.data.total_pages);
       setLoading(false);
     })
-  }, [page, searchValue, distanceRange, durationRange]);
+  }, [page, searchValue, distanceRange, durationRange, orderBy, orderDirection]);
 
   return (
     <>
@@ -42,6 +47,8 @@ export const Journeys = () => {
       {!loading && <Searchbar initialValue={searchValue} placeholder="Search by station i.e Lastenlehto, or month i.e May" onChange={(val) => setSearchValue(val)} />}
       {!loading && <Range title="Distance" unit="km" max={distanceRange[1]} min={distanceRange[0]} step={0.1} onSubmit={(val) => setDistanceRange(val)} />}
       {!loading && <Range title="Duration" unit="min" max={durationRange[1]} min={durationRange[0]} step={1} onSubmit={(val) => setDurationRange(val)} />}
+      {!loading && <OrderSelect placeholder="Order by" options={journeyColumns} value={orderBy} onChange={(val) => setOrderBy(val)}/>}
+      {!loading && <OrderSelect placeholder="Order direction" options={order} value={orderDirection} onChange={(val) => setOrderDirection(val)}/>}
       {!loading && journeys.map(journey => (
         <JourneyCard key={journey.id} journey={journey} />
       ))}
