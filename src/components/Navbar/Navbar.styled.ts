@@ -12,6 +12,7 @@ export const StyledNavBar = styled.nav`
     right: 0;
     height: 3rem;
     position: sticky;
+    z-index: 1;
     @media (max-width: 768px) {
         height: 4rem;
     }
