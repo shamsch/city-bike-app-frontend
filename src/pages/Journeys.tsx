@@ -29,7 +29,7 @@ export const Journeys = () => {
         distanceMin: distanceRange[0],
         distanceMax: distanceRange[1],
         durationMin: durationRange[0],
-        durationMax: durationRange[1], 
+        durationMax: durationRange[1],
         orderBy: orderBy.value,
         orderDir: orderDirection.value
       },
@@ -47,8 +47,8 @@ export const Journeys = () => {
       {!loading && <Searchbar initialValue={searchValue} placeholder="Search by station i.e Lastenlehto, or month i.e May" onChange={(val) => setSearchValue(val)} />}
       {!loading && <Range title="Distance" unit="km" max={distanceRange[1]} min={distanceRange[0]} step={0.1} onSubmit={(val) => setDistanceRange(val)} />}
       {!loading && <Range title="Duration" unit="min" max={durationRange[1]} min={durationRange[0]} step={1} onSubmit={(val) => setDurationRange(val)} />}
-      {!loading && <OrderSelect placeholder="Order by" options={journeyColumns} value={orderBy} onChange={(val) => setOrderBy(val)}/>}
-      {!loading && <OrderSelect placeholder="Order direction" options={order} value={orderDirection} onChange={(val) => setOrderDirection(val)}/>}
+      {!loading && <OrderSelect placeholder="Order by" options={journeyColumns} value={orderBy} onChange={(val) => setOrderBy(val)} />}
+      {!loading && <OrderSelect placeholder="Order direction" options={order} value={orderDirection} onChange={(val) => setOrderDirection(val)} />}
       {!loading && journeys.map(journey => (
         <JourneyCard key={journey.id} journey={journey} />
       ))}
