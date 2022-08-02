@@ -15,8 +15,8 @@ const StationDetailView = ({ station }: StationDetailViewProps) => {
           <div className="station-content">
             <p>Total return journey <b>{station.return_journey}</b></p>
             <p>Total departure journey <b>{station.departure_journey}</b></p>
-            <p>Average departure journey's distance <b>{station.average_departure_distance.toFixed(2)}</b> km</p>
-            <p>Average return journey's distance <b>{station.average_return_distance.toFixed(2)}</b> km</p>
+            <p>Average departure journey's distance <b>{station.average_departure_distance?.toFixed(2)}</b> km</p>
+            <p>Average return journey's distance <b>{station.average_return_distance?.toFixed(2)}</b> km</p>
           </div>
           <img
             src={station.static_map_url}
