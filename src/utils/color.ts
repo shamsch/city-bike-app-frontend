@@ -10,4 +10,5 @@ export const colors = {
     black: "#36454F",
     blackLight: "#6E6E6E",
     blackDark: "#1F1F1F",
+    error: "#ff0000",
 }
