@@ -50,3 +50,8 @@ export interface IJourney{
     coveredDistance: number,
     month: string, 
 }
+
+export interface stationOptions{
+    id: number,
+    name: string,
+}
