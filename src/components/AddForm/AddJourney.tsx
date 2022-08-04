@@ -53,7 +53,7 @@ const AddJourney = () => {
 
     useEffect(() => {
 
-        if (mouseRef.current &&formValue !== initFormValues) {
+        if (mouseRef.current && formValue !== initFormValues) {
             setLoading(true)
             console.log(formValue, initFormValues)
             // axios.post("http://localhost:4000/api/journey/add", {
@@ -68,8 +68,8 @@ const AddJourney = () => {
             // }
             // )  
         }
-        else{
-            mouseRef.current = true; 
+        else {
+            mouseRef.current = true;
         }
     }
         , [formValue])
