@@ -51,7 +51,7 @@ export const AddFormStyled = styled.div`
 
 	.error {
 		color: ${colors.error};
-		font-size: 24px;
+		font-size: 16px;
 		margin: 10px 0;
 	}
 `;

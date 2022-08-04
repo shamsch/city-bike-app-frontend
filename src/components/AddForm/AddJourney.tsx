@@ -33,7 +33,7 @@ const validationSchema = Yup.object().shape({
 	distance: Yup.number().required("Required"),
 });
 
-const AddJourney = () => {
+export const AddJourney = () => {
 	const [formValue, setFormValue] = useState<FormValues>(initFormValues);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [stations, setStations] = useState<stationOptions[]>([]);
@@ -83,6 +83,7 @@ const AddJourney = () => {
 					month: "long",
 				}),
 			});
+			setLoading(true);
 			axios
 				.post("http://bike-app-rest-api.herokuapp.com/api/journey/add", {
 					departure_station: parseInt(
@@ -97,6 +98,7 @@ const AddJourney = () => {
 					}),
 				})
 				.then((res) => {
+					setLoading(false);
 					if (res.status === 200) {
 						setNotification({
 							show: true,
@@ -276,5 +278,3 @@ const AddJourney = () => {
 		</>
 	);
 };
-
-export default AddJourney;
