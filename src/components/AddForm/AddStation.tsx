@@ -1,10 +1,8 @@
 import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import { AddFormStyled } from "./AddForm.styled";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { stationOptions } from "../../types";
 import { Loading } from "../Loading/Loading";
 import * as Yup from "yup";
 import { Notification } from "./Notification";
