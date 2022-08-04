@@ -58,7 +58,44 @@ export const AddStation = () => {
 				lon: parseFloat(formValue.lon.toString()),
 				capacity: parseInt(formValue.capacity.toString()),
 			});
-			setLoading(false);
+			axios
+				.post("https://bike-app-rest-api.herokuapp.com/api/station/add", {
+					name: formValue.name,
+					address: formValue.address,
+					lat: parseFloat(formValue.lat.toString()),
+					lon: parseFloat(formValue.lon.toString()),
+					capacity: parseInt(formValue.capacity.toString()),
+				})
+				.then((res) => {
+					if (res.status === 200) {
+						setNotification({
+							show: true,
+							message: "Station added successfully",
+							type: "success",
+						});
+
+						setFormValue(initFormValues);
+
+						setTimeout(() => {
+							setNotification({
+								show: false,
+								message: "",
+								type: "success",
+							});
+						}, 3000);
+					} else {
+						setNotification({
+							show: true,
+							message: "Something went wrong",
+							type: "error",
+						});
+					}
+					setLoading(false);
+				})
+				.catch((err) => {
+					console.log(err);
+					setLoading(false);
+				});
 		}
 	}, [formValue]);
 
@@ -78,8 +115,8 @@ export const AddStation = () => {
 							initialValues={formValue}
 							onSubmit={(values, { setSubmitting, resetForm }) => {
 								setSubmitting(false);
-								resetForm();
 								setFormValue(values);
+								resetForm();
 							}}
 							validationSchema={validationSchema}
 						>
