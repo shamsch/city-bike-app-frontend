@@ -6,6 +6,11 @@ export const Home = () => {
 	return (
 		<StyledHome>
 			<div>
+				<h1>Home</h1>
+				<p>Welcome to my pre-assignment project for Solita's Dev Academy.</p>
+			</div>
+
+			<div>
 				<Link to="/add-journey">Add Journey</Link>
 			</div>
 			<div>
