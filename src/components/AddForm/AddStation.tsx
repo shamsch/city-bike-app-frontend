@@ -51,21 +51,22 @@ export const AddStation = () => {
 
 		if (!compareFormValues(formValue, initFormValues)) {
 			setLoading(true);
-			console.log({
-				name: formValue.name,
-				address: formValue.address,
-				lat: parseFloat(formValue.lat.toString()),
-				lon: parseFloat(formValue.lon.toString()),
-				capacity: parseInt(formValue.capacity.toString()),
-			});
 			axios
-				.post("https://bike-app-rest-api.herokuapp.com/api/station/add", {
-					name: formValue.name,
-					address: formValue.address,
-					lat: parseFloat(formValue.lat.toString()),
-					lon: parseFloat(formValue.lon.toString()),
-					capacity: parseInt(formValue.capacity.toString()),
-				})
+				.post(
+					"https://bike-app-rest-api.herokuapp.com/api/station/add",
+					{
+						name: formValue.name,
+						address: formValue.address,
+						lat: parseFloat(formValue.lat.toString()),
+						lon: parseFloat(formValue.lon.toString()),
+						capacity: parseInt(formValue.capacity.toString()),
+					},
+					{
+						headers: {
+							pass: process.env.REACT_APP_PASS || "",
+						},
+					}
+				)
 				.then((res) => {
 					if (res.status === 200) {
 						setNotification({
@@ -94,6 +95,20 @@ export const AddStation = () => {
 				})
 				.catch((err) => {
 					console.log(err);
+					setNotification({
+						show: true,
+						message: "Something went wrong",
+						type: "error",
+					});
+					console.log(process.env.REACT_APP_PASS);
+					setTimeout(() => {
+						setNotification({
+							show: false,
+							message: "",
+							type: "success",
+						});
+					}, 3000);
+
 					setLoading(false);
 				});
 		}
