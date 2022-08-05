@@ -6,6 +6,7 @@ import { OrderSelect } from "../components/OrderOption/OrderSelect";
 import { Paginate } from "../components/Paginate/Paginate";
 import { Range } from "../components/Range/Range";
 import { Searchbar } from "../components/Searchbar/Searchbar";
+import { maxValueStore } from "../store/maxValueStore";
 import { IResponseJourney } from "../types";
 import { journeyColumns, order } from "../utils/optionsForSelect";
 
@@ -15,8 +16,14 @@ export const Journeys = () => {
 	const [page, setPage] = useState(1);
 	const [totalPage, setTotalPage] = useState(1);
 	const [searchValue, setSearchValue] = useState("");
-	const [distanceRange, setDistanceRange] = useState([0, 5000]); // because I know the max is 4.8k km by SQL query
-	const [durationRange, setDurationRange] = useState([0, 3000]); // because I know the max is 2.7k min by SQL query, however not optimal, i think a backend endpoint for getting the max is needed for more sophisticated approach
+	const [distanceRange, setDistanceRange] = maxValueStore((state) => [
+		state.maxDistance,
+		state.setMaxDistance,
+	]);
+	const [durationRange, setDurationRange] = maxValueStore((state) => [
+		state.maxDuration,
+		state.setMaxDuration,
+	]);
 	const [orderBy, setOrderBy] = useState(journeyColumns[0]);
 	const [orderDirection, setOrderDirection] = useState(order[0]);
 

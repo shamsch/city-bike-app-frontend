@@ -1,22 +1,52 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Loading } from "../components/Loading/Loading";
+import { maxValueStore } from "../store/maxValueStore";
 import { colors } from "../utils/color";
 
 export const Home = () => {
-	return (
-		<StyledHome>
-			<div>
-				<h1>Home</h1>
-				<p>Welcome to my pre-assignment project for Solita's Dev Academy.</p>
-			</div>
+	const [loading, setLoading] = useState(false);
+	const maxValues = maxValueStore((state) => state);
 
-			<div>
-				<Link to="/add-journey">Add Journey</Link>
-			</div>
-			<div>
-				<Link to="/add-station">Add Station</Link>
-			</div>
-		</StyledHome>
+	useEffect(() => {
+		setLoading(true);
+		axios
+			.get("https://bike-app-rest-api.herokuapp.com/api/journey/maximum")
+			.then((response) => {
+				maxValues.setMaxDistance([0, response.data.maxDistance]);
+				maxValues.setMaxDuration([0, response.data.maxDuration]);
+				setLoading(false);
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+	}, []);
+
+	if (loading) {
+		return <Loading />;
+	}
+
+	return (
+		<>
+			<StyledHome>
+				<div>
+					<h1>Home</h1>
+					<p>Welcome to my pre-assignment project for Solita's Dev Academy.</p>
+				</div>
+
+				<div>
+					<Link to="/add-journey">Add Journey</Link>
+				</div>
+				<div>
+					<Link to="/add-station">Add Station</Link>
+				</div>
+			</StyledHome>
+		</>
 	);
 };
 
