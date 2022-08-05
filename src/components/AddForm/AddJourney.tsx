@@ -85,18 +85,26 @@ export const AddJourney = () => {
 			});
 			setLoading(true);
 			axios
-				.post("http://bike-app-rest-api.herokuapp.com/api/journey/add", {
-					departure_station: parseInt(
-						formValue.departure_station_id.toString()
-					),
-					return_station: parseInt(formValue.return_station_id.toString()),
-					covered_distance: parseFloat(formValue.distance.toString()),
-					departure_time: formValue.departure_time,
-					return_time: formValue.return_time,
-					month: new Date(formValue.departure_time).toLocaleString("en-us", {
-						month: "long",
-					}),
-				})
+				.post(
+					"http://bike-app-rest-api.herokuapp.com/api/journey/add",
+					{
+						departure_station: parseInt(
+							formValue.departure_station_id.toString()
+						),
+						return_station: parseInt(formValue.return_station_id.toString()),
+						covered_distance: parseFloat(formValue.distance.toString()),
+						departure_time: formValue.departure_time,
+						return_time: formValue.return_time,
+						month: new Date(formValue.departure_time).toLocaleString("en-us", {
+							month: "long",
+						}),
+					},
+					{
+						headers: {
+							pass: process.env.REACT_APP_PASS || "",
+						},
+					}
+				)
 				.then((res) => {
 					setLoading(false);
 					if (res.status === 200) {
