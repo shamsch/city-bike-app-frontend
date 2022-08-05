@@ -53,6 +53,10 @@ export const optionsForMonth: {
 	label: string;
 }[] = [
 	{
+		value: "",
+		label: "All",
+	},
+	{
 		value: "January",
 		label: "January",
 	},
