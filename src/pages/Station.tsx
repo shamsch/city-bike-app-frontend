@@ -11,9 +11,11 @@ export const Station = () => {
 	const stationId = params.id;
 	const [station, setStation] = useState<IResponseStation | null>(null);
 	const [month, setMonth] = useState("May");
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		console.log("fetched station");
+		setLoading(true);
 		axios
 			.get(`https://bike-app-rest-api.herokuapp.com/api/station/${stationId}`, {
 				params: {
@@ -22,14 +24,15 @@ export const Station = () => {
 			})
 			.then((response) => {
 				setStation(response.data);
+				setLoading(false);
 			});
 	}, [stationId, month]);
 
 	return (
 		<>
-			{!station && <Loading />}
-			{station && <MonthSelector month={month} setMonth={setMonth} />}
-			{station && <StationDetailView station={station} />}
+			{loading && <Loading />}
+			{!loading && <MonthSelector month={month} setMonth={setMonth} />}
+			{!loading && station && <StationDetailView station={station} />}
 		</>
 	);
 };
