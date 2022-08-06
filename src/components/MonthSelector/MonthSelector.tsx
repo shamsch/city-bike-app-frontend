@@ -15,6 +15,7 @@ export const MonthSelector = ({ setMonth, month }: MonthSelectorProps) => {
 					setMonth(e.target.value);
 				}}
 				value={month}
+				data-testid="month-selector"
 			>
 				{optionsForMonth.map((option) => (
 					<option key={option.value} value={option.value}>
