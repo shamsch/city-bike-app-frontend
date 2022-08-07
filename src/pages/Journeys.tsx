@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import JourneyCard from "../components/Journey/JourneyCard";
+import { JourneyCard } from "../components/Journey/JourneyCard";
 import { Loading } from "../components/Loading/Loading";
 import { OrderSelect } from "../components/OrderOption/OrderSelect";
 import { Paginate } from "../components/Paginate/Paginate";
@@ -65,14 +65,14 @@ export const Journeys = () => {
 			{!loading && (
 				<Searchbar
 					initialValue={searchValue}
-					placeholder="Search by station i.e Lastenlehto, or month i.e May"
+					placeholder='Search by station i.e Lastenlehto, or month i.e May'
 					onChange={(val) => setSearchValue(val)}
 				/>
 			)}
 			{!loading && (
 				<Range
-					title="Distance"
-					unit="km"
+					title='Distance'
+					unit='km'
 					max={distanceRange[1]}
 					min={distanceRange[0]}
 					step={0.1}
@@ -81,8 +81,8 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<Range
-					title="Duration"
-					unit="min"
+					title='Duration'
+					unit='min'
 					max={durationRange[1]}
 					min={durationRange[0]}
 					step={1}
@@ -91,7 +91,7 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<OrderSelect
-					placeholder="Order by"
+					placeholder='Order by'
 					options={journeyColumns}
 					value={orderBy}
 					onChange={(val) => setOrderBy(val)}
@@ -99,7 +99,7 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<OrderSelect
-					placeholder="Order direction"
+					placeholder='Order direction'
 					options={order}
 					value={orderDirection}
 					onChange={(val) => setOrderDirection(val)}
