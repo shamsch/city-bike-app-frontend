@@ -12,13 +12,15 @@ export const Searchbar = ({ onChange, placeholder, initialValue }: SearchbarProp
     const [searchValue, setSearchValue] = useState(initialValue);
     return (
         <>
-            <StyledSearchbar>
+            <StyledSearchbar data-testid="searchbar">
                 <input type="text"
+                    data-testid="searchbar-input"
                     placeholder={placeholder ? placeholder : "Search here"}
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)} 
                 />
                 <button
+                    data-testid="searchbar-button"
                     onClick={() => {
                         onChange(searchValue);
                         setSearchValue("");
