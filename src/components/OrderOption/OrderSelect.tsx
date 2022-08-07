@@ -9,8 +9,8 @@ interface OrderSelectProps {
 
 export const OrderSelect = ({options, onChange, placeholder, value}: OrderSelectProps) => {
     return (
-        <>
-            <StyledOrderSelect>
+        <div data-testid="order-select">
+            <StyledOrderSelect >
                 <Select
                     options={[...options]}
                     onChange={(e) => onChange(e? e : options[0])}
@@ -18,6 +18,6 @@ export const OrderSelect = ({options, onChange, placeholder, value}: OrderSelect
                     value={value}
                 />  
             </StyledOrderSelect>
-        </>
+        </div>
     )
 }
