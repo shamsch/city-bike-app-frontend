@@ -11,7 +11,7 @@ interface PaginateProps {
 export const Paginate = ({ onPageChange, initialPage, totalPage }: PaginateProps) => {
   return (
     <>
-      <StyledPagination>
+      <StyledPagination data-testid="paginate">
         <ReactPaginate
           nextLabel="next >"
           initialPage={initialPage}
