@@ -16,10 +16,11 @@ const StationCard = ({ station }: StationProps) => {
     <>
       <StyledStationCard
         onClick={handleClick}
+        data-testid="station-card"
       >
         <h3>{station.name}</h3>
-        <h6> - {station.address}</h6>
-        <p> Capacity {station.capacity}</p>
+        <h6 data-testid="address"> - {station.address}</h6>
+        <p data-testid="capacity"> Capacity {station.capacity}</p>
       </StyledStationCard>
 
     </>
