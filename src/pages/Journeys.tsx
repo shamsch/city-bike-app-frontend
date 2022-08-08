@@ -45,9 +45,6 @@ export const Journeys = () => {
 			.then((response) => {
 				setJourneys(response.data.journeys);
 				setTotalPage(response.data.total_pages);
-				if (page > totalPage) {
-					setPage(totalPage);
-				}
 				setLoading(false);
 			});
 	}, [
@@ -59,20 +56,25 @@ export const Journeys = () => {
 		orderDirection,
 	]);
 
+	// if any filter is applied then reset page to 1
+	useEffect(() => {
+		setPage(1);
+	}, [distanceRange, durationRange, orderBy, orderDirection, searchValue]);
+
 	return (
 		<>
 			{loading && <Loading />}
 			{!loading && (
 				<Searchbar
 					initialValue={searchValue}
-					placeholder='Search by station i.e Lastenlehto, or month i.e May'
+					placeholder="Search by station i.e Lastenlehto, or month i.e May"
 					onChange={(val) => setSearchValue(val)}
 				/>
 			)}
 			{!loading && (
 				<Range
-					title='Distance'
-					unit='km'
+					title="Distance"
+					unit="km"
 					max={distanceRange[1]}
 					min={distanceRange[0]}
 					step={0.1}
@@ -81,8 +83,8 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<Range
-					title='Duration'
-					unit='min'
+					title="Duration"
+					unit="min"
 					max={durationRange[1]}
 					min={durationRange[0]}
 					step={1}
@@ -91,7 +93,7 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<OrderSelect
-					placeholder='Order by'
+					placeholder="Order by"
 					options={journeyColumns}
 					value={orderBy}
 					onChange={(val) => setOrderBy(val)}
@@ -99,7 +101,7 @@ export const Journeys = () => {
 			)}
 			{!loading && (
 				<OrderSelect
-					placeholder='Order direction'
+					placeholder="Order direction"
 					options={order}
 					value={orderDirection}
 					onChange={(val) => setOrderDirection(val)}
