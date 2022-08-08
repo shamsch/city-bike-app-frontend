@@ -8,15 +8,18 @@ import { colors } from "../utils/color";
 
 export const Home = () => {
 	const [loading, setLoading] = useState(false);
-	const maxValues = maxValueStore((state) => state);
+	const [setMaxDistance, setMaxDuration] = maxValueStore((state) => [
+		state.setMaxDistance,
+		state.setMaxDuration,
+	]);
 
 	useEffect(() => {
 		setLoading(true);
 		axios
 			.get("https://bike-app-rest-api.herokuapp.com/api/journey/maximum")
 			.then((response) => {
-				maxValues.setMaxDistance([0, response.data.maxDistance.toFixed(2)]);
-				maxValues.setMaxDuration([0, response.data.maxDuration.toFixed(2)]);
+				setMaxDistance([0, Math.ceil(response.data.maxDistance)]);
+				setMaxDuration([0, Math.ceil(response.data.maxDuration)]);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -25,7 +28,7 @@ export const Home = () => {
 			.finally(() => {
 				setLoading(false);
 			});
-	}, []);
+	}, [setMaxDistance, setMaxDuration]);
 
 	if (loading) {
 		return <Loading />;
