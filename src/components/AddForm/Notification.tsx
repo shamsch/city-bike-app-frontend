@@ -10,7 +10,10 @@ export const Notification = ({ show, message, type }: NotificationProps) => {
 	return (
 		<>
 			{show && (
-				<StyledNotification color={type === "success" ? "green" : "red"}>
+				<StyledNotification
+					color={type === "success" ? "green" : "red"}
+					data-testid="notification"
+				>
 					{message}
 				</StyledNotification>
 			)}
