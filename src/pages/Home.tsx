@@ -15,8 +15,8 @@ export const Home = () => {
 		axios
 			.get("https://bike-app-rest-api.herokuapp.com/api/journey/maximum")
 			.then((response) => {
-				maxValues.setMaxDistance([0, response.data.maxDistance]);
-				maxValues.setMaxDuration([0, response.data.maxDuration]);
+				maxValues.setMaxDistance([0, response.data.maxDistance.toFixed(2)]);
+				maxValues.setMaxDuration([0, response.data.maxDuration.toFixed(2)]);
 				setLoading(false);
 			})
 			.catch((error) => {
