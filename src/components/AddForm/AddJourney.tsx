@@ -86,7 +86,7 @@ export const AddJourney = () => {
 			setLoading(true);
 			axios
 				.post(
-					"http://bike-app-rest-api.herokuapp.com/api/journey/add",
+					"https://bike-app-rest-api.herokuapp.com/api/journey/add",
 					{
 						departure_station: parseInt(
 							formValue.departure_station_id.toString()
