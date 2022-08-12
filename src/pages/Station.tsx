@@ -16,7 +16,7 @@ export const Station = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get(`https://bike-app-rest-api.herokuapp.com/api/station/${stationId}`, {
+			.get(`http://localhost:3000.com/api/station/${stationId}`, {
 				params: {
 					month: month,
 				},

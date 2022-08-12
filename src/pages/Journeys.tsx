@@ -30,7 +30,7 @@ export const Journeys = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("https://bike-app-rest-api.herokuapp.com/api/journey", {
+			.get("http://localhost:3000/api/journey", {
 				params: {
 					page: page,
 					search: searchValue,

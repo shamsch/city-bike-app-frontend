@@ -50,7 +50,7 @@ export const AddJourney = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("https://bike-app-rest-api.herokuapp.com/api/station/stationOptions")
+			.get("http://localhost:3000/api/station/stationOptions")
 			.then((res) => {
 				setStations(res.data);
 				setLoading(false);
@@ -86,7 +86,7 @@ export const AddJourney = () => {
 			setLoading(true);
 			axios
 				.post(
-					"https://bike-app-rest-api.herokuapp.com/api/journey/add",
+					"http://localhost:3000/api/journey/add",
 					{
 						departure_station: parseInt(
 							formValue.departure_station_id.toString()

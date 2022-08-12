@@ -16,7 +16,7 @@ export const Home = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("https://bike-app-rest-api.herokuapp.com/api/journey/maximum")
+			.get("http://localhost:3000/api/journey/maximum")
 			.then((response) => {
 				setMaxDistance([0, Math.ceil(response.data.maxDistance)]);
 				setMaxDuration([0, Math.ceil(response.data.maxDuration)]);

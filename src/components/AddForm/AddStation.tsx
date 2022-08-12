@@ -53,7 +53,7 @@ export const AddStation = () => {
 			setLoading(true);
 			axios
 				.post(
-					"https://bike-app-rest-api.herokuapp.com/api/station/add",
+					"http://localhost:3000/api/station/add",
 					{
 						name: formValue.name,
 						address: formValue.address,
