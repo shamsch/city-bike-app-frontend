@@ -30,7 +30,7 @@ export const Journeys = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("http://localhost:3000/api/journey", {
+			.get("http://localhost:3001/api/journey", {
 				params: {
 					page: page,
 					search: searchValue,

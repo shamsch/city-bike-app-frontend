@@ -53,7 +53,7 @@ export const AddStation = () => {
 			setLoading(true);
 			axios
 				.post(
-					"http://localhost:3000/api/station/add",
+					"http://localhost:3001/api/station/add",
 					{
 						name: formValue.name,
 						address: formValue.address,

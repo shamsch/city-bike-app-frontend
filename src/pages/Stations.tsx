@@ -16,7 +16,7 @@ export const Stations = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("http://localhost:3000/api/station", {
+			.get("http://localhost:3001/api/station", {
 				params: {
 					page: page,
 					search: searchValue,
