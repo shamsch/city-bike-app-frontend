@@ -19,6 +19,8 @@ This is the frontend of City Bike App. It displays bike journeys and bike statio
 
 # DEVELOPMENT WORKFLOW
 
+A short description of the structure of the project and the steps involved in the development process can be found is below:
+
 ## Project structure
 
 A general overview of how the project is structured is as follows:
@@ -46,7 +48,7 @@ A general overview of how the project is structured is as follows:
 │   └── globalStyles.ts
 │   └── index.ts
 │   └── router.ts
-|── env
+|── .env
 ├── package.json
 ├── README.md
 ├── tsconfig.json
