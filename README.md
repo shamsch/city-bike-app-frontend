@@ -1,7 +1,5 @@
 # PROJECT IN PROGRESS
 
-The README.md file will be ready shortly (before 14th August 2022).
-
 This is the frontend of City Bike App. It displays bike journeys and bike station information for Helsinki, Finland. Initially the app contains only the data which has been imported from [HSL Open Data](https://data.hsl.fi/datasets/hsl-open-data/) for bike journeys that have been made from May 2021 to July 2021, which is roughly 3 million individual journeys. There is option to add more journeys to the application. The app also contain information about all the bike stations in Helsinki. The data for station has been imported from [HSL](https://www.hsl.fi/en/hsl/open-data) too. In the app there is option to add more stations to the application. The app display average distance and average time for journeys made from the station, made to the station, total number of journey made from the station and total number of journey made to the station. It also display the top 5 most popular destinations for journeys made from the station and top 5 most popular starting station for journeys made to the station. It also shows the location of the station in the map. The backend of the app can be found [here](https://github.com/shamsch/city-bike-app-backend).
 
 # TECHNOLOGIES USED
@@ -92,7 +90,7 @@ All the components in the [src/components](src/components) folder have been test
 
 ## E2E Testing
 
-TO BE ADDED
+E2E testing using cypress plan has been cancelled due to lack of time.
 
 # BUGS
 
